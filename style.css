@@ -34,33 +34,30 @@ html {
 .card {
     position: absolute;
     top: -5%;
-    left: 8%;
+    left: 10%;
     padding: 10px;
     width: 80%;
-    height: 85vh;
-    /* max-width: 470px; */
-    /* background: linear-gradient(135deg,#00feba,#5b548a); */
+    height: 80vh;
     background: linear-gradient(90deg, hsla(32, 52%, 40%, 1) 0%, hsla(32, 58%, 53%, 1) 46%, hsla(29, 44%, 19%, 1) 100%);
     opacity: 0.9;
     color: #fff;
     margin: 100px auto 0;
-    /* padding: 40px 35px; */
     text-align: center;
     border-radius: 15px;
     z-index: 2;
 }
 
 .nav {
+    margin-top: 2em;
+    padding-right: 50px;
     width: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
     /* justify-content: space-evenly; */
-    padding-right: 15px;
 }
 
 .nav input {
-    margin: 1em;
     border: 0;
     border-radius: 30px;
     height: 50px;
@@ -164,10 +161,11 @@ h2 {
     display: flex;
     overflow-x: scroll;
     scrollbar-width: 0;
+    justify-content: center;
 }
 
 .days-list {
-    min-width: 8.5em;
+    min-width: 8.0em;
 }
 
 .days-list h3 {
@@ -177,17 +175,12 @@ h2 {
 .days-list {
     display: flex;
     flex-direction: column;
-    padding: 25px;
+    /* padding: 25px; */
     /* margin-left: 5px; */
 }
 
 .days-list span {
     padding: 0.1rem;
-}
-
-.search {
-    min-width: 180px;
-    margin-right: 20px;
 }
 
 .curr-temp {
@@ -201,7 +194,9 @@ h2 {
 @media only screen and (max-width: 600px) {
     .card {
         width: 85%;
+        height: 85vh;
         top: -8%;
+        left: 8%;
     }
 
     .nav {
@@ -226,6 +221,10 @@ h2 {
 
     .curr-temp {
         margin: 0.2em;
+    }
+
+    .seven-day-forcast {
+        justify-content: start;
     }
 
     #logo-div {
