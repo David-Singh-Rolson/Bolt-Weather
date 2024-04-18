@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-width=1.0" />
+    <link href="./style.css" rel="stylesheet" />
+    <title>Weather Forecast</title>
+</head>
+
+<body>
+    <div class="bg-image"></div>
+
+    <div class="card">
+        <!-- main container/card  -->
+
+        <div class="nav"><!-- navbar starts  -->
+            <div class="tl-sec">
+                <div id="logo-div">
+                    <img src="./asset/img/flash.png" id="logo" alt="logo" style="width: 50px; height: 50px" />
+                    <h3>Bolt <br />Weather</h3>
+                </div>
+                <div class="search">
+                    <input oninput="cityTyper(this)" type="text" placeholder="Search City Name..." spellcheck="false" />
+                </div>
+            </div>
+
+            <div class="tr-sec">
+                <div class="sunrise-set">
+                    <span>Sunrise :
+                        <strong>time</strong> </span>
+                    <span>Sunset :
+                        <strong>time</strong>
+                    </span>
+                </div>
+                <div class="low-high">
+                    <span>Low :
+                        <strong>temp</strong> </span>
+                    <span>High :
+                        <strong>time</strong>
+                    </span>
+                </div>
+                <div class="time-wrap">
+                    <strong id="itime">08:30</strong>
+                    <strong id="iday">Monday</strong>
+                </div>
+            </div>
+        </div><!-- navbar ends  -->
+
+        <!-- curr temp showing  -->
+        <div class="curr-temp">
+            <h1 class="temp">22 °C</h1>
+            <h2 class="city">New York</h2>
+
+
+        </div> <!-- curr temp showing  ends here -->
+
+        <div class="temp-details"> <!-- curr temp factors list   -->
+            <div id="wind-speed" class="temp-list">
+                <div class="image-wrapper">
+                    <img style="height: 55px; width: 55px;" src="./asset/img/wind-speed.png" />
+                </div>
+                <div class="text-wrapper">
+                    <span>Wind Speed</span>
+                    <span><strong>23 kmph</strong></span>
+                </div>
+            </div>
+            <div id="humidity" class="temp-list">
+                <div class="image-wrapper">
+                    <img src="./asset/img/humidity-png.png" />
+                </div>
+                <div class="text-wrapper">
+                    <span>Humidity</span>
+                    <span><strong>23</strong></span>
+                </div>
+            </div>
+            <div id="rainfall" class="temp-list">
+                <div class="image-wrapper">
+                    <img src="./asset/img/rainfall-png.png" />
+                </div>
+                <div class="text-wrapper">
+                    <span>Rainfall</span>
+                    <span><strong>23</strong></span>
+                </div>
+            </div>
+        </div> <!-- curr temp factors list    ends here -->
+
+        <!-- seven day forcast div starts here -->
+        <div class="seven-day-forcast">
+            <div class="days-list">
+                <h3>Today</h3>
+                <span>Min <strong>13°C</strong></span>
+                <span>Max <strong>23°C</strong></span>
+            </div>
+            <div class="days-list">
+                <h3>Tommorow</h3>
+                <span>Min <strong>20°C</strong></span>
+                <span>Max <strong>24°C</strong></span>
+            </div>
+            <div class="days-list">
+                <h3>Thu</h3>
+                <span>Min <strong>23°C</strong></span>
+                <span>Max <strong>26°C</strong></span>
+            </div>
+            <div class="days-list">
+                <h3>Fri</h3>
+                <span>Min <strong>20°C</strong></span>
+                <span>Max <strong>24°C</strong></span>
+            </div>
+            <div class="days-list">
+                <h3>Sat</h3>
+                <span>Min <strong>22°C</strong></span>
+                <span>Max <strong>23°C</strong></span>
+            </div>
+            <div class="days-list">
+                <h3>Sun</h3>
+                <span>Min <strong>18°C</strong></span>
+                <span>Max <strong>23°C</strong></span>
+            </div>
+            <div class="days-list">
+                <h3>Mon</h3>
+                <span>Min <strong>19°C</strong></span>
+                <span>Max <strong>26°C</strong></span>
+            </div>
+
+
+        </div> <!-- seven day forcast div starts here -->
+
+    </div> <!-- main container/card   ends here -->
+    <script src="./script.js"></script>
+</body>
+
+</html>

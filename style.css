@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+.bg-image {
+    background-image: url(./asset/gif/msunny.gif);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+#logo {
+    height: 100px;
+    width: 80px;
+}
+
+#logo-div {
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    position: absolute;
+    top: -5%;
+    left: 8%;
+    padding: 10px;
+    width: 80%;
+    height: 85vh;
+    /* max-width: 470px; */
+    /* background: linear-gradient(135deg,#00feba,#5b548a); */
+    background: linear-gradient(90deg, hsla(32, 52%, 40%, 1) 0%, hsla(32, 58%, 53%, 1) 46%, hsla(29, 44%, 19%, 1) 100%);
+    opacity: 0.9;
+    color: #fff;
+    margin: 100px auto 0;
+    /* padding: 40px 35px; */
+    text-align: center;
+    border-radius: 15px;
+    z-index: 2;
+}
+
+.nav {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    /* justify-content: space-evenly; */
+    padding-right: 15px;
+}
+
+.nav input {
+    margin: 1em;
+    border: 0;
+    border-radius: 30px;
+    height: 50px;
+    padding: 10px 25px;
+    font-size: 18px;
+    background: #ebfffc;
+    color: #555;
+    width: max(80%, 225px);
+}
+
+.nav .tl-sec {
+    display: flex;
+    gap: 2em;
+    margin-left: 2em;
+}
+
+.nav .tr-sec {
+    display: flex;
+    gap: 3em;
+}
+
+.sunrise-set,
+.low-high {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.curr-temp {
+    padding: 10px;
+}
+
+.curr-temp h1,
+h2 {
+    font-size: 35px;
+    padding: 5px;
+}
+
+.time-wrap {
+    display: flex;
+    gap: 0.5em;
+    flex-direction: column;
+}
+
+/* .nav button{
+    height: 50px;
+    border-radius: 30px;
+    width: 80px;
+    border: 0;
+    font-size: 18px;
+    color: #555;
+    margin-left: 20px;
+    cursor: pointer;
+} */
+
+.temp-details img {
+    height: 50px;
+    width: 50px;
+}
+
+.temp-details {
+    display: flex;
+    /* padding: 15px; */
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+.temp-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#rainfall {
+    margin-left: 50px;
+}
+
+.image-wrapper {
+    margin-bottom: 5px;
+    /* Adjust as needed for spacing between the image and text */
+}
+
+.text-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    /* Adjust as needed for spacing between image and text */
+}
+
+.text-wrapper span {
+    margin-right: 10px;
+    /* Adjust as needed for spacing between the spans */
+}
+
+.seven-day-forcast::-webkit-scrollbar {
+    display: none;
+}
+
+.seven-day-forcast {
+    margin-top: 1em;
+    display: flex;
+    overflow-x: scroll;
+    scrollbar-width: 0;
+}
+
+.days-list {
+    min-width: 8.5em;
+}
+
+.days-list h3 {
+    padding: 10px;
+}
+
+.days-list {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    /* margin-left: 5px; */
+}
+
+.days-list span {
+    padding: 0.1rem;
+}
+
+.search {
+    min-width: 180px;
+    margin-right: 20px;
+}
+
+.curr-temp {
+    margin: 1.5em;
+}
+
+.seven-day-forcast {
+    margin-top: 2em;
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        width: 85%;
+        top: -8%;
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav .tl-sec {
+        margin-left: 50px;
+        margin-right: 10px;
+        gap: 0;
+        margin-bottom: 2em;
+    }
+
+    .nav .tr-sec .low-high {
+        display: none;
+    }
+
+    #humidity {
+        display: none;
+    }
+
+    .curr-temp {
+        margin: 0.2em;
+    }
+
+    #logo-div {
+        transform: scale(0.7);
+        margin: -0.5em;
+    }
+
+    #logo {
+        margin: 0.5em;
+    }
+
+    #logo-div h3 {
+        display: none;
+    }
+
+    .nav {
+        display: flex;
+    }
+}
