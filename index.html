@@ -21,7 +21,8 @@
                     <h3>Bolt <br />Weather</h3>
                 </div>
                 <div class="search">
-                    <input oninput="cityTyper(this)" type="text" placeholder="Search City Name..." spellcheck="false" />
+                    <input class="searchCity" oninput="cityTyper(this)" type="text" placeholder="Search City Name..."
+                        spellcheck="false" onkeypress="handleKeyPress(event)" />
                 </div>
             </div>
 
@@ -41,8 +42,8 @@
                     </span>
                 </div>
                 <div class="time-wrap">
-                    <strong id="itime">08:30</strong>
-                    <strong id="iday">Monday</strong>
+                    <strong id="itime"></strong>
+                    <strong id="iday"></strong>
                 </div>
             </div>
         </div><!-- navbar ends  -->
@@ -58,7 +59,7 @@
         <div class="temp-details"> <!-- curr temp factors list   -->
             <div id="wind-speed" class="temp-list">
                 <div class="image-wrapper">
-                    <img style="height: 55px; width: 55px;" src="./asset/img/wind-speed.png" />
+                    <img style="height: 55px; width: 55px;" src="./asset/gif/wind-speed.gif" />
                 </div>
                 <div class="text-wrapper">
                     <span>Wind Speed</span>
