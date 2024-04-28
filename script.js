@@ -243,6 +243,13 @@ function setData(wdata) {
     wtype.innerHTML = weatherCode[wetCode][0];
     let imgUrl = weatherCode[wetCode][1];
 
+    const wetType = weatherCode[wetCode][2];
+    const { gradient, gif } = themeConfigs[wetType];
+    card.style.background = gradient;
+    const bgImgUrl = `url(${gif})`;
+    console.log(wetType);
+    bgImage.style.backgroundImage = bgImgUrl;
+
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API --> current location api
