@@ -9,9 +9,12 @@
 </head>
 
 <body>
-    <div class="bg-image"></div>
+    <div class="bolt-og" style="position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);">
+        <img src="./asset/img/flash.png" style="width: 200px;">
+    </div>
+    <div class="bg-image" style="display: none;"></div>
 
-    <div class="card">
+    <div class="card" style="display: none;">
         <!-- main container/card  -->
 
         <div class="nav"><!-- navbar starts  -->
@@ -23,22 +26,23 @@
                 <div class="search">
                     <input class="searchCity" oninput="cityTyper(this)" type="text" placeholder="Search City Name..."
                         spellcheck="false" onkeypress="handleKeyPress(event)" />
+                    <ul id="suggest" type="none"></ul>
                 </div>
             </div>
 
             <div class="tr-sec">
                 <div class="sunrise-set">
                     <span>Sunrise :
-                        <strong>time</strong> </span>
+                        <strong id="sunr">-</strong> </span>
                     <span>Sunset :
-                        <strong>time</strong>
+                        <strong id="suns">-</strong>
                     </span>
                 </div>
                 <div class="low-high">
                     <span>Low :
-                        <strong>temp</strong> </span>
+                        <strong id="low-t">-</strong> </span>
                     <span>High :
-                        <strong>time</strong>
+                        <strong id="high-t">-</strong>
                     </span>
                 </div>
                 <div class="time-wrap">
@@ -50,8 +54,15 @@
 
         <!-- curr temp showing  -->
         <div class="curr-temp">
-            <h1 class="temp">22 °C</h1>
-            <h2 class="city">New York</h2>
+
+            <span>
+                <h1 id="temp">22 °C</h1>
+                <h2 id="city">Delhi</h2>
+
+            </span>
+            <span>
+                <h2 id="wcode"></h2>
+            </span>
 
 
         </div> <!-- curr temp showing  ends here -->
@@ -59,11 +70,11 @@
         <div class="temp-details"> <!-- curr temp factors list   -->
             <div id="wind-speed" class="temp-list">
                 <div class="image-wrapper">
-                    <img style="height: 55px; width: 55px;" src="./asset/gif/wind-speed.gif" />
+                    <img style="height: 55px; width: 55px;" src="./asset/img/wind-speed.png" />
                 </div>
                 <div class="text-wrapper">
                     <span>Wind Speed</span>
-                    <span><strong>23 kmph</strong></span>
+                    <span><strong id="w-speed">23 kmph</strong></span>
                 </div>
             </div>
             <div id="humidity" class="temp-list">
@@ -72,7 +83,7 @@
                 </div>
                 <div class="text-wrapper">
                     <span>Humidity</span>
-                    <span><strong>23</strong></span>
+                    <span><strong id="humid">23</strong></span>
                 </div>
             </div>
             <div id="rainfall" class="temp-list">
@@ -81,7 +92,7 @@
                 </div>
                 <div class="text-wrapper">
                     <span>Rainfall</span>
-                    <span><strong>23</strong></span>
+                    <span><strong id="rain-fall">23</strong></span>
                 </div>
             </div>
         </div> <!-- curr temp factors list    ends here -->
@@ -90,31 +101,65 @@
         <div class="seven-day-forcast">
             <div class="days-list">
                 <h3>Today</h3>
-                <span>13°C / <strong>23°C</strong></span>
+                <span>
+                    <notstrong>13°C /</notstrong>
+                    <strong>23°C</strong>
+                </span>
+                <img class="wea-type" src="./asset/img/slight-rain.png" alt="">
+
             </div>
             <div class="days-list">
-                <h3>Tommorow</h3>
-                <span>13°C / <strong>23°C</strong></span>
+                <h3>Tommorrow</h3>
+                <span>
+                    <notstrong>13°C /</notstrong>
+                    <strong>23°C</strong>
+                </span>
+                <img class="wea-type" src="./asset/img/slight-rain.png" alt="">
+
             </div>
             <div class="days-list">
                 <h3>Thu</h3>
-                <span>13°C / <strong>23°C</strong></span>
+                <span>
+                    <notstrong>13°C /</notstrong>
+                    <strong>23°C</strong>
+                </span>
+                <img class="wea-type" src="./asset/img/slight-rain.png" alt="">
+
             </div>
             <div class="days-list">
                 <h3>Fri</h3>
-                <span>13°C / <strong>23°C</strong></span>
+                <span>
+                    <notstrong>13°C /</notstrong>
+                    <strong>23°C</strong>
+                </span>
+                <img class="wea-type" src="./asset/img/slight-rain.png" alt="">
+
             </div>
             <div class="days-list">
                 <h3>Sat</h3>
-                <span>13°C / <strong>23°C</strong></span>
+                <span>
+                    <notstrong>13°C /</notstrong>
+                    <strong>23°C</strong>
+                </span>
+                <img class="wea-type" src="./asset/img/slight-rain.png" alt="">
+
             </div>
             <div class="days-list">
                 <h3>Sun</h3>
-                <span>13°C / <strong>23°C</strong></span>
+                <span>
+                    <notstrong>13°C /</notstrong>
+                    <strong>23°C</strong>
+                </span>
+                <img class="wea-type" src="./asset/img/slight-rain.png" alt="">
+
             </div>
             <div class="days-list">
                 <h3>Mon</h3>
-                <span>13°C / <strong>23°C</strong></span>
+                <span>
+                    <notstrong>13°C /</notstrong>
+                    <strong>23°C</strong>
+                </span>
+                <img class="wea-type" src="./asset/img/slight-rain.png" alt="">
             </div>
 
 

@@ -11,6 +11,35 @@ html {
     height: 100%;
 }
 
+.bolt-og {
+    animation: fadeOut 2.5s;
+}
+
+.card {
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
 .bg-image {
     background-image: url(./asset/gif/msunny.gif);
     height: 100vh;
@@ -102,20 +131,17 @@ h2 {
     flex-direction: column;
 }
 
-/* .nav button{
-    height: 50px;
-    border-radius: 30px;
-    width: 80px;
-    border: 0;
-    font-size: 18px;
-    color: #555;
-    margin-left: 20px;
-    cursor: pointer;
-} */
+
 
 .temp-details img {
     height: 50px;
+    width: 60px;
+}
+
+.wea-type {
+    height: 50px;
     width: 50px;
+    margin: 0 auto;
 }
 
 .temp-details {
@@ -194,8 +220,8 @@ h2 {
 @media only screen and (max-width: 600px) {
     .card {
         width: 85%;
-        height: 85vh;
-        top: -8%;
+        height: 87vh;
+        top: -10%;
         left: 8%;
     }
 
