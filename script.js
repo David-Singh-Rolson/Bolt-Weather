@@ -40,6 +40,8 @@ const themeConfigs = {
     },
 };
 
+let countriesData = {};
+
 
 
 const weatherCode = {
@@ -74,6 +76,11 @@ const weatherCode = {
 
 const cityApiUrl = "https://geocoding-api.open-meteo.com/v1/search?count=1&language=en&format=json&name="
 
+async function fetchCountriesData() {
+    const response = await fetch('./asset/data/countries.json');
+    countriesData = await response.json();
+}
+
 async function setup() {
     const today_date = new Date();
     const today_day = today_date.getDay();
@@ -94,6 +101,8 @@ async function setup() {
     bgImage.style.display = 'block';
     card.style.display = 'block';
     iSearchCity.value = '';
+
+    await fetchCountriesData();
 }
 setup();
 
@@ -127,6 +136,7 @@ async function cityTyper(icity) {
         icity.value = city;
     } else {
         isuggest.style.visibility = 'hidden';
+        if (vw < 600) trSec.style.visibility = 'visible';
     }
 
     const cs = await citySuggestion(icity.value);
@@ -212,8 +222,7 @@ async function checkWeather(latitude, longitude) {
 
 async function citySuggestion(city) {
     const LIMIT = 3;
-    const response = await fetch('./asset/data/countries.json');
-    const data = await response.json();
+    const data = countriesData;
     const keys = Object.keys(data);
     let mList = [];
     for (let key of keys) {
