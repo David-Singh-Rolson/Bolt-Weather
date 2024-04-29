@@ -120,14 +120,13 @@ async function cityTyper(icity) {
     let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 
     if (icity.value.length > 0) {
+        isuggest.style.visibility = 'visible';
         if (vw < 600) trSec.style.visibility = 'hidden';
         let city = icity.value;
         city = city.charAt(0).toUpperCase() + city.slice(1);
         icity.value = city;
-    }
-    else {
-        isuggest.innerHTML = '';
-        console.log('cleared');
+    } else {
+        isuggest.style.visibility = 'hidden';
     }
 
     const cs = await citySuggestion(icity.value);
