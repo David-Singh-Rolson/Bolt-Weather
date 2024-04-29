@@ -14,6 +14,7 @@ const humid = document.getElementById("humid");
 const rain = document.getElementById("rain-fall");
 const city = document.querySelector("#city");
 const tempd = document.querySelector("#temp");
+const trSec = document.querySelector('.tr-sec');
 const daysList = document.querySelectorAll('.days-list');
 const weaType = document.querySelectorAll('.wea-type');
 const wtype = document.getElementById("wcode");
@@ -115,19 +116,34 @@ updateTime()
 setInterval(updateTime, 1000);
 
 async function cityTyper(icity) {
+    let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+
     if (icity.value.length > 0) {
+        if (vw < 600) trSec.style.visibility = 'hidden';
         let city = icity.value;
         city = city.charAt(0).toUpperCase() + city.slice(1);
         icity.value = city;
     }
+    else {
+        isuggest.innerHTML = '';
+        console.log('cleared');
+    }
 
     const cs = await citySuggestion(icity.value);
-    isuggest.innerHTML = "";
+    isuggest.innerHTML = '';
 
     if (cs.length == 0) return;
     for (let sug of cs) {
         const { city, country } = sug;
         const li = document.createElement('li');
+        li.onclick = async function () {
+            iSearchCity.value = `${city}, ${country}`;
+            isuggest.innerHTML = '';
+            trSec.style.visibility = 'visible';
+            await getCity();
+            iSearchCity.value = '';
+        }
         li.innerHTML = `${city}, ${country}<br>`;
         isuggest.appendChild(li);
     }
@@ -140,11 +156,13 @@ async function cityTyper(icity) {
 
 async function getCity() {
     const ldata = await fetchCityCoords(iSearchCity.value);
-    const { latitude, longitude } = ldata;
+    if (ldata == {}) return;
+    const { latitude, longitude, city, country } = ldata;
     const wdata = await checkWeather(latitude, longitude);
+    if (!wdata) return;
     const dailyData = wdata.daily;
     console.log(wdata);// weather data received
-    setData(wdata);
+    setData({ ...wdata, city, country });
 }
 
 function handleKeyPress(event) {
@@ -161,11 +179,14 @@ async function fetchCityCoords(cityName) {
             throw new Error('Network response was not ok');
         }
         const data = await cityResponseCoords.json(); // Assuming JSON response
+        if (!data.results) return {};
         const result = data.results[0];
         // console.log(result); // Log the city coords response
         const ldata = {
             latitude: result['latitude'],
-            longitude: result['longitude']
+            longitude: result['longitude'],
+            city: result['name'],
+            country: result['country']
         };
         return ldata;
     } catch (error) {
@@ -174,12 +195,14 @@ async function fetchCityCoords(cityName) {
 }
 
 async function checkWeather(latitude, longitude) {
-    const WeatherApiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&timezone=Asia/Kolkata&current=temperature_2m,relative_humidity_2m,precipitation,cloud_cover,showers,wind_gusts_10m,is_day,rain,weather_code,wind_speed_10m,wind_direction_10m&hourly=is_day,sunshine_duration&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset`;
+    const WeatherApiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&timezone=Asia/Kolkata&current=temperature_2m,relative_humidity_2m,precipitation,cloud_cover,showers,wind_gusts_10m,is_day,rain,weather_code,wind_speed_10m,wind_direction_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset`;
 
     try {
         const weatherResponse = await fetch(WeatherApiUrl);
         if (!weatherResponse.ok) {
-            throw new Error('Network response was not ok');
+            console.log('No such city');
+            return;
+            // throw new Error('Network response was not ok');
         }
         const wdata = await weatherResponse.json();
         return wdata;
@@ -213,7 +236,7 @@ function setData(wdata) {
     speed.innerHTML = wdata.current.wind_speed_10m + " kmph";
     humid.innerHTML = wdata.current.relative_humidity_2m + " %";
     rain.innerHTML = wdata.current.showers + " mm";
-    city.innerHTML = iSearchCity.value;
+    city.innerHTML = wdata.city + ', ' + wdata.country;
     const sr = wdata.daily.sunrise[0];
     var datee = new Date(sr);
     var dte = getMyTime(datee);
